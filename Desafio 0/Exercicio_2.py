@@ -1,12 +1,12 @@
 from itertools import combinations
 
-lista = [5, 1, 4, 3, 3, 4, 1, 5]
+lista = [5, 1, 4, 3, 3, 4, 1, 5, 6, 7]
 
 
 def diferenca_absoluta(lista: list,
                        allow_duplicates: bool = False,
-                       sorted_pairs: bool = False,
-                       unique_pairs: bool = False):
+                       sorted_pairs: bool = True,
+                       unique_pairs: bool = True):
     # Ordena os valores da lista de forma crescente e faz os pares da mesma forma
     if sorted_pairs is True:
         lista = sorted(lista)
@@ -38,4 +38,4 @@ def diferenca_absoluta(lista: list,
     return pares_menor_diferenca
 
 
-print(diferenca_absoluta(lista, False, True, True))
+print(diferenca_absoluta(lista))
