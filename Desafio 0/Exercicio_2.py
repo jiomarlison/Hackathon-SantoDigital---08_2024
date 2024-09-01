@@ -23,9 +23,8 @@ def diferenca_absoluta(lista: list,
         combinacoes = combinacoes_sem_duplicatas
 
     # Cria uma lista com as diferenças absoluta de cada par
-    diferencas = [
-        abs(combinacao[0] - combinacao[1]) for combinacao in combinacoes
-    ]
+    diferencas = [abs(combinacao[0] - combinacao[1]) for combinacao in combinacoes]
+
     # Gera a lista com o(s) par(es) com a menor diferença absoluta
     pares_menores = []
     for comb in combinacoes:
