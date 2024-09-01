@@ -1,6 +1,6 @@
 from itertools import combinations
 
-lista = [6, 2, 3, 1, 'a']
+lista = [6, 2, 3, 1]
 
 
 def lista_combinacoes(lista: list[int],
@@ -52,4 +52,4 @@ def lista_combinacoes(lista: list[int],
     return combinacoes
 
 
-print(lista_combinacoes(lista, max_size=2, min_size=1, distinct_only=False, sort_subsets=True))
+print(lista_combinacoes(lista))
