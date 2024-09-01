@@ -3,11 +3,15 @@ from itertools import combinations
 lista = [5, 3, 1, 7, 5, 9]
 
 
-def diferenca_absoluta(lista: list,
+def diferenca_absoluta(lista: list[int],
                        allow_duplicates: bool = False,
                        sorted_pairs: bool = True,
                        unique_pairs: bool = True):
     # Ordena os valores da lista de forma crescente e faz os pares da mesma forma
+    for n in lista:
+        if type(n) != int:
+            print("A lista só pode conter numeros!")
+            return ""
     if sorted_pairs is True:
         lista = sorted(lista)
 
