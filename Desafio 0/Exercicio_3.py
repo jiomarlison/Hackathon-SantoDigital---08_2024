@@ -1,24 +1,38 @@
 from itertools import combinations
 
-lista = [45, 6, 3, 6]
+lista = [6, 2, 3, 1]
 
 
 def lista_combinacoes(lista: list,
-                      max_size: int = 1,
-                      min_size: int = -1,
+                      max_size: int = len(lista),
+                      min_size: int = 0,
                       distinct_only: bool = True,
                       sort_subsets: bool = True,
                       ):
-
-    print("Erro, min_size não pode ser maior que max_size") if min_size > max_size else ...
-    print("max_size não pode ser maior que a quantia de elementos da lista") if max_size > len(lista) else ...
-
+    # Bloco de verificação para parametros invalidos
+    if len(lista) == 0:
+        print("A lista deve conter ao menos 1 número!")
+        return ""
+    if min_size > max_size:
+        print("Erro, tamanho minimo(min_size) não pode ser maior que maior tamanho(max_size)")
+        return ""
+    if min_size < 0:
+        print("Erro, tamanho minimo(min_size) não pode ser menor que 0")
+        return ""
+    if max_size > len(lista):
+        print("max_size não pode ser maior que a quantia de elementos da lista")
+        return ""
+    # Remove números duplicados da lista, evitando a criação de dois conjuntos iguais
+    # e/ou com dois ou mais números iguais em um unico conjunto.
     if distinct_only is True:
         nova_lista = []
         for numero in lista:
             if numero not in nova_lista:
                 nova_lista.append(numero)
         lista = nova_lista
+
+    # Ordena os números da lista de forma que os conjuntos gerados estarão em ordem
+    # crescente tanto internamente em cada conjunto e externamente entre eles.
     if sort_subsets is True:
         lista = sorted(lista)
 
@@ -31,4 +45,4 @@ def lista_combinacoes(lista: list,
     return combinacoes
 
 
-print(lista_combinacoes(lista, 3, 1, True, True))
+print(lista_combinacoes(lista, max_size=2, min_size=1, distinct_only=False, sort_subsets=True))

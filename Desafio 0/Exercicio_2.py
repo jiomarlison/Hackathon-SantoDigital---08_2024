@@ -1,6 +1,6 @@
 from itertools import combinations
 
-lista = [5, 3, 1, 7, 5]
+lista = [5, 3, 1, 7, 5, 9]
 
 
 def diferenca_absoluta(lista: list,
