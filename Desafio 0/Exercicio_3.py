@@ -11,6 +11,7 @@ def lista_combinacoes(lista: list,
                       ):
 
     print("Erro, min_size não pode ser maior que max_size") if min_size > max_size else ...
+    print("max_size não pode ser maior que a quantia de elementos da lista") if max_size > len(lista) else ...
 
     if distinct_only is True:
         nova_lista = []
@@ -30,4 +31,4 @@ def lista_combinacoes(lista: list,
     return combinacoes
 
 
-print(lista_combinacoes(lista, 3, 1, False, False))
+print(lista_combinacoes(lista, 3, 1, True, True))
