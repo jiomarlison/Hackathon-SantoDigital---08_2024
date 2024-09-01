@@ -1,3 +1,4 @@
+use adventureworks;
 # ACHAR O ProductCategoryKey DA TABELA DE CATEGORIAS PARA BICICLETAS
 # RETORNA 1
 SELECT ProductCategoryKey AS KEY_CATEGORIA_PRODUTOS_BICICLETA
@@ -33,7 +34,12 @@ WHERE ProductSubcategoryKey IN (
 # AGRUPANDO POR ProductKey E ANO,
 # ORDENANDO POR QUANTIDADE_VENDIDA DE FORMA DECRECENTE
 # E LIMITANDO OS VALORES AOS 10 PRIMEIROS
-SELECT ProductKey, YEAR(STR_TO_DATE(OrderDate, '%m/%d/%Y')) as ANO, SUM(OrderQuantity) as QUANTIDADE_VENDIDA
+SELECT (
+    SELECT ProductName
+    FROM adventureworks_products
+    WHERE adventureworks_sales.ProductKey = adventureworks_products.ProductKey
+    ) as NOME
+    , YEAR(STR_TO_DATE(OrderDate, '%m/%d/%Y')) as ANO, SUM(OrderQuantity) as QUANTIDADE_VENDIDA
 FROM adventureworks_sales
 WHERE ProductKey IN (
     SELECT ProductKey
@@ -50,7 +56,7 @@ WHERE ProductKey IN (
 )
 AND YEAR(STR_TO_DATE(OrderDate, '%m/%d/%Y'))
         IN (2016,2017)
-GROUP BY ProductKey, ANO
+GROUP BY NOME, ANO
 ORDER BY QUANTIDADE_VENDIDA DESC
 LIMIT 10
 ;
