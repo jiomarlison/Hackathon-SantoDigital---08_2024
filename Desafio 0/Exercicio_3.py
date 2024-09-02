@@ -44,10 +44,13 @@ def lista_combinacoes(lista: list[int],
     # Realiza as combinações dos numeros da lista depois de passar por quais
     # parametro foram ativados
     combinacoes = []
-    for tam in range(0, len(lista) + 1):
-        if max_size >= tam >= min_size:
-            for comb in combinations(lista, tam):
-                combinacoes.append(comb)
+    # for tam in range(0, len(lista) + 1):
+    #     if max_size >= tam >= min_size:
+    #         for comb in combinations(lista, tam):
+    #             combinacoes.append(comb)
+    for n in range(min_size, max_size + 1):
+        for comb in combinations(lista, n):
+            combinacoes.append(comb)
 
     return combinacoes
 
